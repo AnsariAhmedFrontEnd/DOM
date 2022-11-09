@@ -26,4 +26,8 @@ for (let i = 0; i<listItems.length; i++){
     listItems[i].style.color = 'navy';
 }
 
+let li = document.getElementsByClassName('newitem');
 
+
+let liNew = document.getElementsByTagName('li');
+liNew[4] = 'This item have different class Name';
