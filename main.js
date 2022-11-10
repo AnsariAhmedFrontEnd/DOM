@@ -1,9 +1,13 @@
 let form = document.getElementById('addForm');
 let itemList = document.getElementById('items');
 
+let filter = document.getElementById('filter');
+
 form.addEventListener('submit', addItem);
 
 itemList.addEventListener('click',removeItem);
+
+filter.addEventListener('keyup',filterItems);
 
 function addItem(event) {
     event.preventDefault();
@@ -14,6 +18,10 @@ function addItem(event) {
     li.className = 'list-group-item';
 
     li.appendChild(document.createTextNode(newItem));
+
+    let itemDescription = document.getElementById('description').value;
+
+    li.appendChild(document.createTextNode(` ${itemDescription}`));
 
     let delButton = document.createElement('button');
 
@@ -32,6 +40,7 @@ function addItem(event) {
     li.appendChild(editButton);
 
     itemList.appendChild(li);
+
 }
 
 function removeItem(event) {
@@ -42,4 +51,21 @@ function removeItem(event) {
         }
     }
    
+}
+
+
+function filterItems(event) {
+    let text = event.target.value.toLowerCase();
+    let items = itemList.getElementsByTagName('li');
+
+    Array.from(items).forEach(function(item){
+        let itemName = item.firstChild.textContent;
+        let descName = item.childNodes[1].textContent;
+        if(itemName.toLocaleLowerCase().indexOf(text) != -1 || descName.toLocaleLowerCase().indexOf(text) != -1) {
+            item.style.display ='block';
+        }
+        else{
+            item.style.display = 'none';
+        }
+    });
 }
