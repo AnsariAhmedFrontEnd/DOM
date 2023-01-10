@@ -1,0 +1,38 @@
+<html>
+    <head>
+        <title>Add Users</title>
+        <style>
+        
+            input {
+                width: 300px;
+                padding: 5px 0px 5px 0px;
+            }
+            fieldset {
+                padding: 0px 20px 10px 20px;
+                margin: 30px auto;
+                width: fit-content;
+                background-color: rgb(240, 240, 240);
+            }
+        </style>
+    </head>
+    <body>
+        <form id="form" onsubmit="store(event)"> 
+            <fieldset>
+            <h1>Add Users</h1>
+            <label>Name:</label><br>
+            <input type="text" id="nameInput" style="margin-bottom:10px;"><br>
+            <label>Email:</label><br>
+            <input type="text" id="email" style="margin-bottom:10px ;"><br>
+            <label>Mobile:</label><br>
+            <input type="number" id="number"><br><br>
+            <input type="submit" style="background-color:black; color:white;">
+            </fieldset> 
+            
+        </form>
+        <ul id="items">
+
+        </ul>
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+        <script src="main.js"></script>
+    </body>
+</html>
